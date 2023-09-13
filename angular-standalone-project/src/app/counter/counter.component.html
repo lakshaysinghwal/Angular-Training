@@ -1,0 +1,6 @@
+<h2>Counter Component {{10+30}}</h2>
+<input type="text" value="count">
+<!-- one way data binding -->
+<input type="number" value="{{count}}" (change)="handleChange()">
+<!-- two way binding -->
+<input type="number" [(ngModel)]="count" (change)="handleChange()">
