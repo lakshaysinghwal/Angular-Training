@@ -3,9 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-shopping-list',
   template: `
-    <p>
-      shopping-list works!
-    </p>
+    <app-product-list></app-product-list>
+    <app-cart-items></app-cart-items>
   `,
   styles: [
   ]
