@@ -7,7 +7,9 @@ import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { HomeComponent, NotFoundComponent } from "./menulinks.component";
-import { Routes, RouterModule } from "@angular/router"
+import { Routes, RouterModule } from "@angular/router";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { AppMaterialModule } from "./app-material.module";
 
 //Define route mapping
 const appRoutes:Routes = [
@@ -27,7 +29,8 @@ const appRoutes:Routes = [
 //2. Use NgModule Decorator
 @NgModule({
     //Module Dependencies : Dependencies for the decorator
-    imports : [/*AuthModule, AdminModule,*/ ShoppingModule, BrowserModule, RouterModule.forRoot(appRoutes)],
+    imports : [/*AuthModule, AdminModule,*/ ShoppingModule, BrowserModule, RouterModule.forRoot(appRoutes), 
+    BrowserAnimationsModule, AppMaterialModule],
     //Register Component classes
     declarations: [AppComponent, HeaderComponent, HomeComponent, NotFoundComponent],
     //Start up Components

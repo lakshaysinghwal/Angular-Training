@@ -1,1 +1,14 @@
-<p>dashboard works!</p>
+<!-- <p>dashboard works!</p> -->
+<mat-sidenav-container>
+    <mat-sidenav mode="side" opened>
+        <mat-nav-list>
+            <a routerLink="users" mat-list-item>Manage Users</a>
+            <mat-divider></mat-divider>
+            <a routerLink="products" mat-list-item>Manage Products</a>
+            <mat-divider></mat-divider>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
