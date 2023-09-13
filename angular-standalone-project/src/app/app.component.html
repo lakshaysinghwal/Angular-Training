@@ -1,6 +1,7 @@
 <h2>Angular Standalone component- App count value is {{appCount}}</h2>
+<button (click)="handleButton()">Show/Hide Counter component</button>
 <hr>
-<app-counter [count]="appCount"></app-counter>
+<app-counter *ngIf="show" [count]="appCount" (myEvent)="handleMyEvent($event)"></app-counter>
 
 
 <!-- <router-outlet></router-outlet> -->

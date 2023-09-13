@@ -12,6 +12,16 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-standalone-project';
   appCount = 9000
+
+  show = false
+
+  handleMyEvent(val:number) {
+    this.appCount = val
+  }
+
+  handleButton() {
+    this.show = !this.show
+  }
+
 }
