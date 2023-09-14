@@ -4,6 +4,7 @@ import {RouterModule} from "@angular/router"
 import { AppMaterialModule } from "../app-material.module";
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { ManageProductsComponent } from './manage-products/manage-products.component';
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -11,7 +12,7 @@ import { ManageProductsComponent } from './manage-products/manage-products.compo
     ManageUsersComponent,
     ManageProductsComponent
   ],
-  imports: [ AppMaterialModule,
+  imports: [ AppMaterialModule, CommonModule,
     RouterModule.forChild([
         {path:"dashboard", component: DashboardComponent, children: [
           {path : "users", component: ManageUsersComponent},

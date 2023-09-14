@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Product } from 'src/app/models/product.model';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
+  productList:Product[]=[]
+  //Inject the Dependency Objects
+  private prodSvc = inject(ProductService)
 
+  ngOnInit() {
+    this.productList = this.prodSvc.getProducts()
+  }
 }
