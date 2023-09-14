@@ -5,10 +5,18 @@ import { CartItem } from '../models/cart.model';
   providedIn: 'root'
 })
 export class CartService {
-  private cartData: CartItem[] = []
+  public cartData: CartItem[] = []
   constructor() { }
 
   getCartItems() {
     return this.cartData
+  }
+
+  addCartItem(newItem:CartItem) {
+    this.cartData.push(newItem)
+  }
+
+  deleteCartItem(index:number) {
+    this.cartData.splice(index, 1)
   }
 }

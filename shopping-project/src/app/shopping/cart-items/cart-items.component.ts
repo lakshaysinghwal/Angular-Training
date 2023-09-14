@@ -13,5 +13,16 @@ export class CartItemsComponent {
   ngOnInit() {
     this.cartItems = this.cartSvc.getCartItems()
   }
+  delete(index:number) {
+    this.cartSvc.deleteCartItem(index)
+  }
+
+  totalAmount() {
+    let total = 0
+    for(let i=0; i<this.cartItems.length; i++){
+      total += this.cartItems[i].price * this.cartItems[i].qty
+    }
+    return total
+  }
 
 }

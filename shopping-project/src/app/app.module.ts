@@ -11,6 +11,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppMaterialModule } from "./app-material.module";
 import { ProductService } from "./services/product.service";
+import { ToastrModule } from "ngx-toastr"
 
 //Define route mapping
 const appRoutes:Routes = [
@@ -31,7 +32,7 @@ const appRoutes:Routes = [
 @NgModule({
     //Module Dependencies : Dependencies for the decorator
     imports : [/*AuthModule, AdminModule,*/ ShoppingModule, BrowserModule, RouterModule.forRoot(appRoutes), 
-    BrowserAnimationsModule, AppMaterialModule],
+    BrowserAnimationsModule, AppMaterialModule, ToastrModule.forRoot()],
     //Register Component classes
     declarations: [AppComponent, HeaderComponent, HomeComponent, NotFoundComponent],
     //Start up Components

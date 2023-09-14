@@ -1,1 +1,33 @@
-<p>register works!</p>
+<!-- <p>register works!</p> -->
+
+<!-- <p>login works!</p> -->
+<div class="content">
+    <mat-card>
+        <mat-card-header> <h2>Register</h2>
+        </mat-card-header>
+        <mat-card-content>
+            <form>
+                <mat-form-field class="full-width">
+                    <mat-label>UserName</mat-label>
+                    <input matInput />
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" />
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Role (Select a User Role)</mat-label>
+                    <mat-select>
+                        <mat-option value = "">--Please Select From Below---</mat-option>
+                        <mat-option value="vendor">Supplier</mat-option>
+                        <mat-option value="staff">Staff</mat-option>
+                        <mat-option value="cust">Customer</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button mat-raised-button color="primary">Submit</button>
+                Existing User?
+                <a routerLink="/auth/login" mat-raised-button color="accent">Login</a> 
+           </form>
+        </mat-card-content>
+    </mat-card>
+</div>
