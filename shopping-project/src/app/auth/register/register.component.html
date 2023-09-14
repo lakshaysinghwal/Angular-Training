@@ -6,18 +6,18 @@
         <mat-card-header> <h2>Register</h2>
         </mat-card-header>
         <mat-card-content>
-            <form>
+            <form #registerForm="ngForm" (submit)="doRegister(registerForm.valid)">
                 <mat-form-field class="full-width">
                     <mat-label>UserName</mat-label>
-                    <input matInput />
+                    <input matInput name ="txtName" [(ngModel)]="frmUser.username" />
                 </mat-form-field>
                 <mat-form-field class="full-width">
                     <mat-label>Password</mat-label>
-                    <input matInput type="password" />
+                    <input matInput type="password" name = "txtPwd" [(ngModel)]="frmUser.password" />
                 </mat-form-field>
                 <mat-form-field class="full-width">
                     <mat-label>Role (Select a User Role)</mat-label>
-                    <mat-select>
+                    <mat-select name ="dnRole" required="[(ngModel)]= frmUser.role">
                         <mat-option value = "">--Please Select From Below---</mat-option>
                         <mat-option value="vendor">Supplier</mat-option>
                         <mat-option value="staff">Staff</mat-option>
