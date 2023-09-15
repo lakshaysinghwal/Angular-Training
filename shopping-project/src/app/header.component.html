@@ -21,8 +21,8 @@
 <mat-toolbar color="primary">
     <span style="margin-right: 100px;"><i> Shopping Menu  </i></span>
     <a routerLink="/home" class="menu-spacer" routerLinkActive="active-link"> Home </a>
-    <a routerLink="/auth/login" class="menu-spacer" routerLinkActive="active-link"> Login </a>
-    <a routerLink="/auth/register" class="menu-spacer" routerLinkActive="active-link"> Register </a>
-    <a routerLink="/admin/dashboard" class="menu-spacer" routerLinkActive="active-link"> Dashboard </a>
-    <a routerLink="/auth/logout" class="menu-spacer" routerLinkActive="active-link"> Logout </a>
+    <a routerLink="/auth/login" *ngIf="!isAdminLoggedIn" class="menu-spacer" routerLinkActive="active-link"> Login </a>
+    <a routerLink="/auth/register" *ngIf="!isAdminLoggedIn" class="menu-spacer" routerLinkActive="active-link"> Register </a>
+    <a routerLink="/admin/dashboard" *ngIf="isAdminLoggedIn" class="menu-spacer" routerLinkActive="active-link"> Dashboard </a>
+    <a routerLink="/auth/logout" *ngIf="isAdminLoggedIn" class="menu-spacer" routerLinkActive="active-link"> Logout </a>
 </mat-toolbar>

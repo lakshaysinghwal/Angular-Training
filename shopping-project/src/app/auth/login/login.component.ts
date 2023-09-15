@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms"
 import {ToastrService} from "ngx-toastr"
 import { Router } from "@angular/router"
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,7 @@ import { Router } from "@angular/router"
 export class LoginComponent {
   private toastrSvc = inject(ToastrService)
   private router = inject(Router)
+  private authSvc = inject(AuthService)
 
   loginForm:FormGroup
   constructor() {
@@ -28,6 +30,7 @@ export class LoginComponent {
       // console.log(this.loginForm.value)
       if(this.loginForm.value.uname == "admin"  && this.loginForm.value.upwd == "admin") {
         this.toastrSvc.success("Login Success..")
+        this.authSvc.setIsLoggedIn(true)
         sessionStorage.setItem("User", this.loginForm.value.uname)
         //Navigate to Dashboard
         this.router.navigate(["/admin/dashboard"])

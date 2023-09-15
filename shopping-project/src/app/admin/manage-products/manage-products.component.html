@@ -1,4 +1,13 @@
 <h2>Manage Products</h2>
+
+<form>
+    ID: <input type ="number" name="txtId" [(ngModel)]="frmProduct.id" readonly style="width: 50px;">
+    Name: <input type ="text" name="txtName" [(ngModel)]="frmProduct.name">
+    Price: <input type ="number" name="txtPrice" [(ngModel)]="frmProduct.price">
+    Description: <input type ="text" name="txtDesc" [(ngModel)]="frmProduct.description"> &nbsp;
+    <button class ="btn btn-primary" (click)="save()">Save</button>
+    
+</form>
 <table class = "table table-bordered">
     <thead>
         <tr>
@@ -7,6 +16,7 @@
             <th>Price</th>
             <th>Description</th>
         </tr>
+        <th>Actions</th>
     </thead>
     <tbody>
         <tr *ngFor="let product of manageProducts">
@@ -14,6 +24,10 @@
             <td>{{product.name}}</td>
             <td>{{product.price}}</td>
             <td>{{product.description}}</td>
+            <td>
+                <button class ="btn btn-success" (click)="view(product)">View</button> &nbsp;
+                <button class ="btn btn-danger" (click)="delete(product.id)">Delete</button>
+            </td>
         </tr>
     </tbody>
 </table>

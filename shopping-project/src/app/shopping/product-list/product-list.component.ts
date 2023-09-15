@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { CartItem } from 'src/app/models/cart.model';
 import { Product } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
@@ -14,9 +15,17 @@ export class ProductListComponent {
   //Inject the Dependency Objects
   private prodSvc = inject(ProductService)
   private cartSvc = inject(CartService)
+  private toastrSvc = inject(ToastrService)
+
+  today = new Date()
 
   ngOnInit() {
-    this.productList = this.prodSvc.getProducts()
+    // this.productList = this.prodSvc.getProducts()
+    this.prodSvc.getAllProducts().subscribe({
+      next: (data) => this.productList = data,
+      error: (err) => this.toastrSvc.error("Error in getting products : ",err)
+
+    })
   }
   addToCart(product:Product) {
     let flag = true

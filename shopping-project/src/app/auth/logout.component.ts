@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-logout',
@@ -11,7 +12,10 @@ import { Component } from '@angular/core';
   ]
 })
 export class LogoutComponent {
+  private authSvc = inject(AuthService)
+  
   ngOnInit() {
+    this.authSvc.setIsLoggedIn(false)
     sessionStorage.clear()
   }
 
